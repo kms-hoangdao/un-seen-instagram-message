@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "IG Seen Blocker",
+  "version": "1.0.0",
+  "description": "Đọc tin nhắn Instagram mà không gửi trạng thái đã xem.",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "IG Seen Blocker"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["inject.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["bridge.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
